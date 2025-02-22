@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Me</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Background Video */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            background-color: white !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
+        }
+
+        .navbar-brand, .nav-link {
+            color: black !important;
+        }
+
+        /* Prevent Content Overlap */
+        body {
+            margin: 0;
+            font-family: "Times New Roman", serif;
+            font-weight: normal;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 70px;
+            overflow: hidden;
+        }
+
+        /* Centering Button */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Button Styling */
+        .button {
+            --bg: #000;
+            --hover-bg: #90EE90;
+            --hover-text: #000;
+
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid var(--bg);
+            border-radius: 4px;
+            padding: 0.8em 2em;
+            background: var(--bg);
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            font-size: 1.2rem;
+        }
+
+        /* Hover Effect */
+        .button:hover {
+            color: var(--hover-text);
+            background: var(--hover-bg);
+            transform: translate(-0.15rem, -0.15rem);
+            box-shadow: 0.4rem 0.4rem var(--bg);
+        }
+
+        .cards-container {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            bottom: 50px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Card Styling */
+        .contact-card {
+            height: auto;
+            width: auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: normal;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-card a {
+            text-decoration: none;
+            color: black;
+            font-weight: normal;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KNA DESIGNS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutme.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="connect_page.html">Connect Me</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="aboutme.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services By Me
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="wedding cards.html">Invitation Cards</a></li>
+                            <li><a class="dropdown-item" href="ad.html">Advertisements</a></li>
+                            <li><a class="dropdown-item" href="brandpromotion.html">Brand</a></li>
+                            <li><a class="dropdown-item" href="baptism.html">Baptism</a></li>
+                            <li><a class="dropdown-item" href="poster.html">Posters</a></li>
+                            <li><a class="dropdown-item" href="banner.html">Banners</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="background-video/Falling Leaf animation.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Centered Button -->
+    <div class="button-container">
+        <button class="button" onclick="showCards()">Connect With Me :)</button>
+    </div>
+
+    <!-- Cards List -->
+    <div class="cards-container" id="contactCards">
+        <div class="contact-card">📧 Email: knadesigns345@gmail.com</div>
+        <div class="contact-card">📞 Phone: +919744064108 </div>
+        <div class="contact-card">📷 Instagram: <a href="https://www.instagram.com/kna.designs/" target="_blank">@kna.designs</a></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function showCards() {
+            let cards = document.getElementById("contactCards");
+            if (cards.style.display === "none" || cards.style.display === "") {
+                cards.style.display = "flex";
+            } else {
+                cards.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
